@@ -17,7 +17,7 @@ function inversion(cx, cy, r){
 			if(d==0)continue;
 			d=r*r/((cx-i)*(cx-i)+(cy-j)*(cy-j));
 			var x1=Math.round(cx+(i-cx)*d), y1=Math.round(cy+(j-cy)*d);
-			for(var k=0; k<4; ++k)inv[4*(x1*w1+y1)+k]=origin.data[4*(i*w0+j)+k];
+			if(0<=x1&&x1<h1&&0<=y1&&y1<w1)for(var k=0; k<4; ++k)inv[4*(x1*w1+y1)+k]=origin.data[4*(i*w0+j)+k];
 		}
 	}
 	var inverse=ct1.getImageData(0, 0, cv1.width, cv1.height);
@@ -50,7 +50,7 @@ function upd(){
 	ct1.putImageData(origin, 0, 0);
 	ct1.beginPath();
 	cx=Number(CX.value), cy=Number(CY.value), r=Number(R.value);
-	ct1.arc(cx, cy, r, 0, 2*Math.PI);
+	ct1.arc(cy, cx, r, 0, 2*Math.PI);
 	ct1.stroke();
 }
 
