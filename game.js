@@ -16,8 +16,8 @@ function inversion(cx, cy, r){
 			var d=(cx-i)*(cx-i)+(cy-j)*(cy-j);
 			if(d==0)continue;
 			d=r*r/((cx-i)*(cx-i)+(cy-j)*(cy-j));
-			var x1=Math.round(cx+(i-cx)*d), y1=Math.round(cy+(j-cy)*d);
-			if(0<=x1&&x1<h1&&0<=y1&&y1<w1)for(var k=0; k<4; ++k)inv[4*(x1*w1+y1)+k]=origin.data[4*(i*w0+j)+k];
+			var x0=Math.round(cx+(i-cx)*d), y0=Math.round(cy+(j-cy)*d);
+			if(0<=x0&&x0<h0&&0<=y0&&y0<w0)for(var k=0; k<4; ++k)inv[4*(i*w1+j)+k]=origin.data[4*(x0*w0+y0)+k];
 		}
 	}
 	var inverse=ct1.getImageData(0, 0, cv1.width, cv1.height);
