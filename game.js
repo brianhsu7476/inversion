@@ -2,7 +2,7 @@ document.querySelector('#imageInput').addEventListener('change', update);
 var CX=document.querySelector('#cx'), CY=document.querySelector('#cy'), R=document.querySelector('#radius');
 CX.value=300, CY.value=300, R.value=200;
 var cx=Number(CX.value), cy=Number(CY.value), r=Number(R.value);
-var w1=1000, h1=1000;
+var w1=2048, h1=2048;
 
 function f(x, y){
 	var d=(x-cx)*(x-cx)+(y-cy)*(y-cy);
