@@ -57,23 +57,23 @@ function upd(){
 	ct1.stroke();
 
 	var ret=f(cx-h1/2, cy-w1/2);
-	ct1.moveTo(ret[0], ret[1]);
+	ct1.moveTo(ret[1], ret[0]);
 	ct1.beginPath();
 	for(var i=-h1/2, j=-w1/2; i<h1/2; ++i){
 		var ret=f(cx+i, cy+j);
-		ct1.lineTo(ret[0], ret[1]);
+		ct1.lineTo(ret[1], ret[0]);
 	}
 	for(var i=h1/2, j=-w1/2; j<w1/2; ++j){
 		var ret=f(cx+i, cy+j);
-		ct1.lineTo(ret[0], ret[1]);
+		ct1.lineTo(ret[1], ret[0]);
 	}
 	for(var i=h1/2, j=w1/2; i>=-h1/2; --i){
 		var ret=f(cx+i, cy+j);
-		ct1.lineTo(ret[0], ret[1]);
+		ct1.lineTo(ret[1], ret[0]);
 	}
 	for(var i=-h1/2, j=w1/2; j>=-w1/2; --j){
 		var ret=f(cx+i, cy+j);
-		ct1.lineTo(ret[0], ret[1]);
+		ct1.lineTo(ret[1], ret[0]);
 	}
 	ct1.strokeStyle='red', ct1.stroke();
 }
