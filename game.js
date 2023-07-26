@@ -3,6 +3,7 @@ var CX=document.querySelector('#cx'), CY=document.querySelector('#cy'), R=docume
 CX.value=300, CY.value=300, R.value=200;
 var cx=Number(CX.value), cy=Number(CY.value), r=Number(R.value);
 var w1=2048, h1=2048;
+var saveURL='';
 
 function f(x, y){
 	var d=(x-cx)*(x-cx)+(y-cy)*(y-cy);
@@ -28,6 +29,8 @@ function inversion(){
 	for(var i=0; i<inv.length; ++i)inverse.data[i]=inv[i];
 	ct1.putImageData(inverse, 0, 0);
 	document.querySelector('#text1').innerHTML='反演皮計算完成（在網頁的最下面）！';
+	document.querySelector('#button1').innerHTML='<input type="button" value="下載反演皮" onclick="download()">';
+	saveURL=cv1.toDataURL('image/png');
 }
 
 function update(evt){
@@ -83,6 +86,12 @@ function inverse(){
 	setTimeout(function(){
 		inversion(cx, cy, r);
 	}, 0);
+}
+
+function download(){
+	var link=document.createElement('a');
+	link.href=saveURL, link.download='inversion.png';
+	document.body.appendChild(link), link.click(), document.body.removeChild(link);
 }
 
 document.onkeydown=function(e){
